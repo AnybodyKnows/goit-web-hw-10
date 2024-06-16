@@ -1,5 +1,9 @@
 from django.shortcuts import render
 
+from .utils import get_mongodb
+
 
 def main(request):
-    return render(request, 'quot/index.html', context={})
+    db = get_mongodb()
+    quotes = db.quotes.find()
+    return render(request, 'quot/index.html', context={'quotes': quotes})
