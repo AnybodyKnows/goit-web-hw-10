@@ -49,3 +49,9 @@
     border: 1px solid #dddddd;
     border-radius: 15px;
 }
+
+
+.disabled {
+    color: #333333;
+    cursor: not-allowed;
+}
