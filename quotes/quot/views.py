@@ -11,3 +11,7 @@ def main(request, page=1):
     quotes_on_page = paginator.page(page)
 
     return render(request, 'quot/index.html', context={'quotes': quotes_on_page})
+
+
+def test(request):
+    return render(request, 'quot/test.html')
