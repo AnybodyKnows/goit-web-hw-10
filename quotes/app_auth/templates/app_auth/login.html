@@ -1,8 +1,8 @@
 {% extends "quot/base.html" %}
 
-{% block body %}
+{% block content %}
 <div class="container mt-3">
-    <h2>RLogin User</h2>
+    <h2>Login User</h2>
 
     {% if messages %}
     <div class="messages">
@@ -25,14 +25,12 @@
             </label>
             <span>{{form.errors.username}}</span>
         </div>
-
         <div class="mb-3">
             <label class="form-label">Password
-                {{ form.pwd }}
+                {{ form.password }}
             </label>
             <span>{{form.errors.pwd1}}</span>
         </div>
-
         <button type="submit" class="btn btn-primary">Submit</button>
         <button type="reset" class="btn btn-secondary">Reset</button>
     </form>

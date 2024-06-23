@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib import messages
 from .forms import RegisterForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
 
 class RegisterView(View):
@@ -21,6 +23,9 @@ class RegisterView(View):
         return render(request, self.template_name, {'form': form})
 
 
-def test_view(request):
-    return render(request, 'app_auth/test.html')
+def logoutuser(request):
+    logout(request)
+    return render(request, 'app_auth/logout.html')
+
+
 # Create your views here.
