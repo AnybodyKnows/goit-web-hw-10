@@ -7,5 +7,5 @@ app_name = 'quot'
 urlpatterns = [
     path("", views.main, name="root"),
     path("<int:page>", views.main, name="root_paginate"),
-    path("test", views.test, name="test"),
+    path("add_author/", views.add_author, name="add_author"),
 ]
