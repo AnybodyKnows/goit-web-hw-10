@@ -3,6 +3,7 @@ from django.core.paginator import Paginator
 from .utils import get_mongodb
 from .forms import AuthorAddForm, QuoteAddForm
 from .models import Author, Quotes
+from django.contrib.auth.decorators import login_required
 
 
 def main(request, page=1):
@@ -14,6 +15,7 @@ def main(request, page=1):
     return render(request, 'quot/index.html', context={'quotes': quotes_on_page})
 
 
+@login_required(login_url='/auth/signin/')
 def add_author(request):
 
     if request.method == 'POST':
@@ -27,6 +29,7 @@ def add_author(request):
     return render(request, 'quot/add_author.html', {'form': AuthorAddForm()})
 
 
+@login_required(login_url='/auth/signin/')
 def add_quote(request):
     if request.method == 'POST':
         form = QuoteAddForm(request.POST)

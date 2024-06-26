@@ -123,7 +123,7 @@ STATIC_URL = 'static/'
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
 LOGIN_URL = "auth/signin/"
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = "auth/signin/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
