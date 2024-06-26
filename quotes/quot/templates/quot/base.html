@@ -14,26 +14,31 @@
 </head>
 <body>
 <div class="container">
-        <div class="row header-box pt-3 mb-3">
-            <div class="col-md-8">
-                <h1>
-                    <a href="/" style="text-decoration: none">Quotes to Scrape</a>
-                </h1>
-            </div>
-            <div class="col-md-4">
-                <p>
-
-                    <a href="{% url 'app_auth:signup' %}" class="btn btn-primary">SignUp</a>
-                    <a href="{% url 'app_auth:signin' %}" class="btn btn-primary">Login</a>
-                    <a href="{% url 'app_auth:logout' %}" class="btn btn-primary">Logout</a>
-
-                </p>
-            </div>
+    <div class="row header-box pt-3 mb-3">
+        <div class="col-md-5">
+            <h1>
+                <a href="/" style="text-decoration: none">Quotes to Scrape</a>
+            </h1>
         </div>
+        <div class="col-md-6">
+            <p>
+                {% if user.is_authenticated %}
+                Welcome <b>{{ user.username }}!</b>
+                <a href="{% url 'quot:add_author' %}" class="btn btn-primary">Add Author</a>
+                <a href="{% url 'quot:add_quote' %}" class="btn btn-primary">Add Quote</a>
+                <a href="{% url 'app_auth:logout' %}" class="btn btn-primary">Logout</a>
+                {% else %}
+                <a href="{% url 'app_auth:signup' %}" class="btn btn-primary">SignUp</a>
+                <a href="{% url 'app_auth:signin' %}" class="btn btn-primary">Login</a>
+                {% endif %}
+
+            </p>
+        </div>
+    </div>
 
     {% block content %}
     {% endblock %}
 
-    </div>
+</div>
 </body>
 </html>
